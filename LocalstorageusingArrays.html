@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>LocalStorage-Arrays</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+</head>
+
+<body>
+
+    <div class="jumbotron">
+      <h3>Planner</h3>
+      <h6>LocalStorage-using arrays</h6>
+    </div>
+    <div class="container">
+      <div class ="row">
+               <div class ="col-md-6 col-sm-12">
+                      <form>
+                      <div class="form-group">
+                        <label for="dateassigned"></label>Assigned Date</label>
+                        <input class="form-control" type="date"  id="dateassigned">
+                      </div>
+                      <div class="form-group">
+                        <label for="description">Description</label>
+                        <input class="form-control" id="description" type="text">
+                      </div>
+                      <div class="form-group">
+                        <label for="duedate">Due Date</label>
+                        <input class="form-control" id="duedate"  type="date">
+                      </div>
+                      <button class="btn btn-success float-right" id="adddetails">Submit</button>
+                    </form>
+               </div>
+                <div class ="col-md-6 col-sm-12">
+                    <table class="table table-sm table-hover" id='data-table'>
+                      <thead>
+                        <tr>
+                          <th scope="col">Assigned Date</th>
+                          <th scope="col">Description</th>
+                          <th scope="col">Due Date</th>
+                        </tr>
+                      </thead>
+                      <tbody id="contents">
+                      </tbody>
+
+                </div>
+          </div>
+   </div>
+
+  <script>
+
+                  var planner = [];
+                  //localStorage.clear()
+                  displayPlanner();
+
+                  function displayPlanner(){
+                         var len;
+
+                         console.log("1st",localStorage.plannerData);
+                          if (localStorage.plannerData)
+                              {
+
+                                planner = JSON.parse(localStorage.getItem("plannerData"));
+                                len = planner.length;
+                              }
+                          else {
+                             len = 0
+                          };
+                            $("#data-table").empty();
+                          for (var i = 0; i < len; i++) {
+
+                                $("#data-table").append(
+                                  "<tr><td>" + planner[i].dateassigned +
+                                   "</td><td>" + planner[i].description +
+                                    "</td><td>" + planner[i].duedate+"</td>"); // appending data to table on right
+                          };
+                   }
+
+                   $("#adddetails").on("click", function(event) {
+                                   event.preventDefault() // prevents page from refreshing when hitting submit button
+                                   var date = $("#dateassigned").val().trim(); // setting vars for user date input from form
+                                   var description = $("#description").val().trim();
+                                   var duedate = $("#duedate").val().trim();
+
+                                   $("#dateassigned").val(""); // clears the textbox when done
+                                   $("#description").val("");
+                                   $("#duedate").val("");
+
+                                   planner.push({
+                                       dateassigned: date,
+                                       description : description,
+                                       duedate: duedate
+                                   });
+
+                                  // Store all content into localStorage
+                                   localStorage.setItem("plannerData", JSON.stringify(planner));
+                                   console.log("2nd",localStorage.plannerData);
+                                  displayPlanner();
+                     });
+
+
+                // $("#data-table").append("<tr><td>" + localStorage.getItem("Date") + "<td>" + localStorage.getItem("Current Weight") + "<td>" + localStorage.getItem("Goal Weight")); // appending data to table on righ
+                $("#reset-data-btn").on("click", function() {
+                   localStorage.clear(); // to clear everything in local storage
+                });
+
+  </script>
