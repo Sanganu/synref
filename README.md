@@ -14,3 +14,10 @@ Bubble Sort
 
 Constructors
      constructors.js
+
+
+Constructors, Inquirer, Axios
+    actordetails.js
+    showdetails.js
+    mycliapp.js
+    

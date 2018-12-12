@@ -1,0 +1,23 @@
+{
+  "name": "syntaxreference",
+  "version": "1.0.0",
+  "description": "Using axios",
+  "main": "axiosPrg.js",
+  "dependencies": {
+    "axios": "^0.18.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Axios package\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scodingjs/synref.git"
+  },
+  "author": "SAngeetha",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/scodingjs/synref/issues"
+  },
+  "homepage": "https://github.com/scodingjs/synref#readme"
+}
