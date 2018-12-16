@@ -46,15 +46,16 @@ public class Main
 		{
 		    for(int i=0;i<result.length;i++)
 	        {
-	        System.out.println("");
+	        
 	        for(int j=0;j<result[i].length;j++)
 	        {
 	            for(int k=0; k<matrix2.length;k++)
 	            {
-	               result[i][j] +=(matrix1[i][k]*matrix2[j][k]);
+	               result[i][j] +=(matrix1[i][k]*matrix2[k][j]);
+	               System.out.println(matrix1[i][k]+"*"+matrix2[k][j]);
 	            
 	            }
-	            System.out.print(result[i][j]);
+	           
 	            
 	        }
 	        }
