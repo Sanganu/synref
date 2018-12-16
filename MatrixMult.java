@@ -42,14 +42,27 @@ public class Main
 	  
 	    System.out.println("======================");
 		System.out.println("The Matrix Multiplication");
-		 for(int i=0;i<result.length;i++)
-	    {
+		if(matrix1[0].length == matrix2.length)
+		{
+		    for(int i=0;i<result.length;i++)
+	        {
 	        System.out.println("");
 	        for(int j=0;j<result[i].length;j++)
 	        {
-	            result[i][j] = (matrix1[i][j]*matrix2[j][i]);
+	            for(int k=0; k<matrix2.length;k++)
+	            {
+	               result[i][j] +=(matrix1[i][k]*matrix2[j][k]);
+	            
+	            }
 	            System.out.print(result[i][j]);
+	            
 	        }
-	    }
+	        }
+	        System.out.println(Arrays.deepToString(result));
+		}
+		else{
+		    System.out.println("Matrix Multiplication is not possible!!!!!");
+		}
+		
 	}
 }
