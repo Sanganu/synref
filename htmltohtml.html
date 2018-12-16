@@ -6,8 +6,12 @@
   </head>
   <body>
     <h1>Page 1</h1>
+    <button id="loadanother">Load Next Page</button>
     <script>
+      $("loadanother").on("click",function(){
         window.location.href = '2html.html?username='+"IDname"
+      });
+        
     </script>
   </body>
 </html>
