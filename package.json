@@ -4,7 +4,8 @@
   "description": "Using axios",
   "main": "axiosPrg.js",
   "dependencies": {
-    "axios": "^0.18.0"
+    "axios": "^0.18.0",
+    "express": "^4.16.3"
   },
   "devDependencies": {},
   "scripts": {

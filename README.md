@@ -27,4 +27,8 @@ Nested -Constructors using Module.Exports
      
 Setup server with http and serve pages
     httpserversetup.js
-    
+
+Express Setup and serving html file
+   expressref.js
+   Devotionalblog.html
+   
