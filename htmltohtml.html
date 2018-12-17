@@ -2,13 +2,14 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>First-HTML</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
   <body>
     <h1>Page 1</h1>
     <button id="loadanother">Load Next Page</button>
     <script>
-      $("loadanother").on("click",function(){
+      $("#loadanother").on("click",function(){
         window.location.href = '2html.html?username='+"IDname"
       });
         
