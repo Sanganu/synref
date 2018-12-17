@@ -1,5 +1,13 @@
 /******************************************************************************
 
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+/******************************************************************************
+
                             Online Java Compiler.
                 Code, Compile, Run and Debug java program online.
 Write your code in this editor and press "Run" button to execute it.
@@ -14,7 +22,7 @@ public class Main
 	    int[][] result={{0,0,0},{0,0,0},{0,0,0}};
 	   
 	    System.out.println("The First Matrix given:");
-         System.out.println("\n======================");
+         System.out.println("\n=============================================");
 	     for(int i=0;i<matrix1.length;i++)
 	    {
 	        System.out.println("");
@@ -23,13 +31,13 @@ public class Main
 	            System.out.print("("+i+","+j+")= "+matrix1[i][j]);
 	        }
 	    }
-	     System.out.println("======================");
+	     System.out.println("\n===============================================");
 	    System.out.println(Arrays.deepToString(matrix1));
-	    System.out.println("======================");
+	    System.out.println("==================================================");
 	     System.out.println("The Second Matrix given:");
-          System.out.println("\n======================");
+          System.out.println("\n==============================================");
            System.out.println(Arrays.deepToString(matrix2));
-             System.out.println("======================");
+             System.out.println("=============================================");
 	     for(int i=0;i<matrix2.length;i++)
 	    {
 	        System.out.println("");
@@ -40,29 +48,30 @@ public class Main
 	    }
 	   
 	  
-	    System.out.println("======================");
+	    System.out.println("\n==========================================");
 		System.out.println("The Matrix Multiplication");
 		if(matrix1[0].length == matrix2.length)
 		{
 		    for(int i=0;i<result.length;i++)
 	        {
 	        
-	        for(int j=0;j<result[i].length;j++)
-	        {
-	            for(int k=0; k<matrix2.length;k++)
-	            {
-	               result[i][j] +=(matrix1[i][k]*matrix2[k][j]);
-	               System.out.println(matrix1[i][k]+"*"+matrix2[k][j]);
-	            
-	            }
-	           
-	            
+					for(int j=0;j<result[i].length;j++)
+					{
+						for(int k=0; k<matrix2.length;k++)
+						{
+						result[i][j] +=(matrix1[i][k]*matrix2[k][j]);
+						//    System.out.println(matrix1[i][k]+"*"+matrix2[k][j]);
+						
+						}
+				
+					}
 	        }
-	        }
+	        System.out.println("\n============================================");
 	        System.out.println(Arrays.deepToString(result));
+	        System.out.println("\n============================================");
 		}
 		else{
-		    System.out.println("Matrix Multiplication is not possible!!!!!");
+		    System.out.println("Matrix Multiplication is not possible!!!!!"); 
 		}
 		
 	}
