@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h3>Javascript -- White Boarding</h3>
+    <script>
+          let userobjects = [
+            {
+              "id": "glwer6kn7767spok",
+              "username": "Zebra",
+               "referrer": "wsa2fsf43hfsdsddd"
+            },
+            {
+                "id": "wsa2fsf43hfsdsddd",
+                "username": "Michael"
+            },
+            {
+                "id": "opwew726000qq",
+                "username": "Twinkle",
+                 "referrer": "wsa2fsf43hfsdsddd"
+            },
+            {
+               "id": "9ewr8jkshf99j",
+               "username":"Start",
+               "referrer": "opwew726000qq"
+            }
+          ];
+          let userdet =  "[{\"_id\": \"glwer6kn7767spok\",\"username\": \"JohnSmith\",\"country\": \"US\",\"referrerId\": \"wsa2fsf43hfsfdsddd\"},{\"_id\": \"wsa2fsf43hfsfdsddd\",\"username\": \"Michael\",\"country\": \"US\"},{\"_id\": \"tt222hbakq23asddd\",\"username\": \"Frank01\",\"country\": \"UK\",\"referrerId\": \"wsa2fsf43hfsfdsddd\"}]"
+          console.log("++++PArse+++")
+          console.log(JSON.parse(userdet))
+          console.log("++++/stringfy+++");
+          console.log(JSON.stringify(userdet));
+          console.log("+++results++++");
+          console.log(referFriends(userobjects));
+          console.log("--End--");
+            function referFriends(userInfo) {
+                let l = userInfo.length;
+                let response = [];
+                let uname = [];
+                 for(let i = 0; i< l; i++)
+                 {
+                     let user = userInfo[i];
+                     let count = 0;
+                     for( let j = 0; j < l; j++)
+                     {
+                       if( userInfo[j].hasOwnProperty('referrer') )
+                       {
+                         if(userInfo[j].referrer === user.id)
+                          {
+                             count++;
+                          }
+                       }
+                     }
+                     console.log("UserName : "+user.username+" : Amount : "+(count*500));
+                     response.push({user.username: (count*500)});
+                     //response.push('"'+user.username+' $'+count*500+'"')
+                 }
+                /*object.keys and object.values can be used with sort and indexof*/
+                /*have names in array sort then evaluate function call while pushing check for it*/
+                 console.log("----Uname",uname);
+                 return response;
+           }
+
+         /* Submitted in Codefights */
+         function referFriends1(userInfo) {
+                userInfo = JSON.parse(userInfo);
+                let l = userInfo.length;
+                let response = [];
+                let uname = [];
+
+                 for(let i = 0; i< l; i++)
+                 {
+                     let user = userInfo[i];
+                     let count = 0;
+                     for( let j = 0; j < l; j++)
+                     {
+                       if ( i !== j )
+                       {
+                           if( userInfo[j].hasOwnProperty('referrerId') )
+                           {
+                             if(userInfo[j].referrerId === user._id)
+                              {
+                                 count++;
+                              }
+                           }
+                       }
+                     }
+                     console.log("UserName : "+user.username+" : Amount : "+(count*500));
+                     uname.push({"username" :user.username,"amount" : (count*500)});
+                     //response.push(user.username+' $'+(count*500))
+                 }
+              response = uname.sort(function(a,b){
+                return a.username - b.username;
+              });
+              console.log("----Uname",uname);
+              return response;
+       }
+
+    </script>
+  </body>
+</html>
