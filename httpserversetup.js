@@ -94,7 +94,7 @@ function defaultPage(path,req,res)
 function requestHandle(path,req,res)
 {
     fs.readFile(__dirname+path,function(err,data){
-            if(err)res.end("Error in servning localstorage file!!!",err);
+            if(err)res.end("Error in serving localstorage file!!!",err);
             res.writeHead(200,{"Content-Type":"text/html"});
             res.end(data);
         });

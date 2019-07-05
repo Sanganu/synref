@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Devotional Blog</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <header>
+        <h3>Devotional Blog</h3>
+    </header>
+    <div class = "container">
+        <form>
+            <input id="godname" placeholder="Enter God name: " class ="inptfield" />
+            <input id="power" placeholder="Power: " class ="inptfield" />
+            <input id="location" placeholder="Location: " class ="inptfield" />
+            <input id="days" placeholder="Days: " class ="inptfield" />
+        </form>
+        <button id="submitgoddetails"/>Add Details</button>
+    </div>
+    <script type="text/javascript">
+        console.log("JS");
+   
+       $("#submitgoddetails").on("click",function(event){
+           event.preventDefault();
+           console.log("Btn click");
+           var myUserObject ={
+               name:$("#godname").val().trim(),
+               power:$("#power").val().trim(),
+               location: $("#location").val().trim(),
+               days:$("#days").val().trim()
+           };
+           // $.post("/api/newgod",myUserObject,function(err,response){
+           //     if(err) throw(err);
+           //     console.log("The response",response);
+           // });
+           console.log("User Object",myUserObject);
+           $.post("/api/newgod",myUserObject)
+               .then(function(response){
+               console.log("The response",response);})
+               .catch(function(error){
+                   if(error) throw(error);
+                   
+                 });
+       });
+     
+   </script>
+</body>
+
+</html>
